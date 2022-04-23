@@ -1,0 +1,7 @@
+docs
+mllog-venv
+*-share.zip
+Progress.md
+log.hdf5
+__pycache__
+Instructions.md
