@@ -182,6 +182,13 @@ class Logger(object):
         commit(git_path, folder_path)
 
     def plot(self, x, y, return_fig=False, format_str="rx-"):
+        """
+        Returns a plot between time and stats.
+
+        :param git_path: Git repo path
+        :param folder_path: Folder path
+        """
+
         return plot(
             self.stat_log.time_tracked,
             self.stat_log.stats_tracked,
