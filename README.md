@@ -91,10 +91,6 @@ Push to local Git repository:
 log.commit("C:\\Users\\ExampleUser\\Experiments", ".\abcd")
 ```
 
-## Development
-
-See development instructions [here](Development.md).
-
 ## License
 
 tidyexp is licensed under the MIT License.

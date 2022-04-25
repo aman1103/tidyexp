@@ -2,6 +2,7 @@
 name = "tidyexp"
 version = "0.1.0"
 description = "Easy-to-use, offline-first ML experiment management solution."
+readme = "README.md"
 authors = ["TidyExp Team <500076406@stu.upes.ac.in>"]
 license = "MIT"
 

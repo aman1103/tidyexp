@@ -1,35 +1,25 @@
-name: Upload to TestPyPI
-
+name: TestPyPI
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
-
+    branches:
+      - main
 jobs:
-  build:
+  test_pypi:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      # Sets up python3
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.8.10
-
-      # Setup project
-      - name: "Setup project"
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install setuptools wheel twine
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          python3 setup.py install
-
-      # Upload to TestPyPI
-      - name: Build and Upload to TestPyPI
-        run: |
-          python3 setup.py sdist bdist_wheel
-          python3 -m twine upload dist/*
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_TOKEN }}
-          TWINE_REPOSITORY: testpypi
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.8'
+        architecture: x64
+    - run: pip install poetry==1.1.13
+    - run: >-
+        poetry version patch &&
+        version=$(poetry version | awk '{print $2}') &&
+        poetry version $version.dev.$(date +%s)
+    - run: poetry build
+    - uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.TEST_PYPI_TOKEN }}
+        repository_url: https://test.pypi.org/legacy/
