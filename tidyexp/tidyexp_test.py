@@ -20,4 +20,4 @@ def test_setup_invalid():
     On passing none values to the logger, Logger should raise a TypeError.
     """
     with pytest.raises(TypeError):
-        log = Logger("1", ".", None, None, "torch")
+        _ = Logger("1", ".", None, None, "torch")

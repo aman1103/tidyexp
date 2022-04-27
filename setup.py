@@ -19,7 +19,7 @@ def parse_requirements(path: str) -> List[str]:
         ]
 
 
-tar_uri = f"https://github.com/aman1103/tidyexp/archive/v0.1.0.tar.gz"
+tar_uri = f"https://github.com/tidyexp/tidyexp/archive/v0.1.0.tar.gz"
 
 setup(
     name="tidyexp",
@@ -29,7 +29,7 @@ setup(
     description="Easy-to-use, offline-first ML experiment management solution",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/aman1103/tidyexp",
+    url="https://github.com/tidyexp/tidyexp",
     download_url=tar_uri,
     classifiers=[
         "Programming Language :: Python :: 3.6",

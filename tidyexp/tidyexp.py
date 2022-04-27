@@ -83,7 +83,6 @@ class Logger(object):
 
         # sanitize stats
         stats = {key: float(value) for (key, value) in stats.items()}
-        print("Stats:", stats)
 
         time_dict, stats_dict = self.stat_log.update(time, stats)
 
