@@ -1,5 +1,4 @@
 from tidyexp.save.stat_log import StatLog
-from tidyexp.tidyexp import Logger
 import pytest
 
 
